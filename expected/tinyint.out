@@ -1,0 +1,208 @@
+SET client_min_messages = warning;
+\set ECHO none
+RESET client_min_messages;
+SELECT 0::tinyint;
+ tinyint 
+---------
+ 0
+(1 row)
+
+SELECT 1::integer::tinyint::smallint::tinyint::bigint::tinyint;
+ tinyint 
+---------
+ 1
+(1 row)
+
+SELECT 1::tinyint < 2::tinyint;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT -1::tinyint > +10::tinyint;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 1::smallint > 0::tinyint;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 1::integer > 0::tinyint;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 1::bigint > 0::tinyint;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 1::tinyint < 0::smallint;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 1::tinyint < 0::integer;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 1::tinyint < 0::bigint;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 1::tinyint + 1::tinyint;
+ ?column? 
+----------
+ 2
+(1 row)
+
+SELECT 1::tinyint + 1::smallint;
+ ?column? 
+----------
+        2
+(1 row)
+
+SELECT 1::tinyint + 1::integer;
+ ?column? 
+----------
+        2
+(1 row)
+
+SELECT 1::tinyint + 1::bigint;
+ ?column? 
+----------
+        2
+(1 row)
+
+SELECT 1::smallint + 1::tinyint;
+ ?column? 
+----------
+        2
+(1 row)
+
+SELECT 1::integer + 1::tinyint;
+ ?column? 
+----------
+        2
+(1 row)
+
+SELECT 1::bigint + 1::tinyint;
+ ?column? 
+----------
+        2
+(1 row)
+
+SELECT 2::tinyint * 2::tinyint;
+ ?column? 
+----------
+ 4
+(1 row)
+
+SELECT 4::tinyint / -2::tinyint;
+ ?column? 
+----------
+ -2
+(1 row)
+
+SELECT 2::smallint * 2::tinyint;
+ ?column? 
+----------
+        4
+(1 row)
+
+SELECT 2::integer * 2::tinyint;
+ ?column? 
+----------
+        4
+(1 row)
+
+SELECT 2::bigint * 2::tinyint;
+ ?column? 
+----------
+        4
+(1 row)
+
+SELECT 2::smallint / 2::tinyint;
+ ?column? 
+----------
+        1
+(1 row)
+
+SELECT 2::integer / 2::tinyint;
+ ?column? 
+----------
+        1
+(1 row)
+
+SELECT 2::bigint / 2::tinyint;
+ ?column? 
+----------
+        1
+(1 row)
+
+SELECT 2::tinyint * 2::smallint;
+ ?column? 
+----------
+        4
+(1 row)
+
+SELECT 2::tinyint * 2::integer;
+ ?column? 
+----------
+        4
+(1 row)
+
+SELECT 2::tinyint * 2::bigint;
+ ?column? 
+----------
+        4
+(1 row)
+
+SELECT 2::tinyint / 2::smallint;
+ ?column? 
+----------
+        1
+(1 row)
+
+SELECT 2::tinyint / 2::integer;
+ ?column? 
+----------
+        1
+(1 row)
+
+SELECT 2::tinyint / 2::bigint;
+ ?column? 
+----------
+        1
+(1 row)
+
+SELECT MAX(val), MIN(val), AVG(val), SUM(val) FROM (VALUES('1'::tinyint),('2'),('5'),('10')) AS s(val);
+ max | min |        avg         | sum 
+-----+-----+--------------------+-----
+ 10  | 1   | 4.5000000000000000 |  18
+(1 row)
+
+CREATE TABLE t_tinyint (vals tinyint[]);
+INSERT INTO t_tinyint VALUES('{0,0,0,1,2,3,0}'),('{1,2,100,127,-126}'::tinyint[]);
+CREATE INDEX t_tinyint_gin ON t_tinyint USING gin(vals);
+SELECT 128::tinyint;
+ERROR:  tinyint out of range
+SELECT 16::tinyint * 16::tinyint;
+ERROR:  tinyint out of range
+SELECT 127::tinyint * 32767::smallint;
+ERROR:  smallint out of range
+SELECT 16::tinyint / 0;
+ERROR:  division by zero
+SELECT (1::bigint << 63) * 2::tinyint;
+ERROR:  bigint out of range
