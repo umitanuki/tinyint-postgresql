@@ -1,0 +1,11 @@
+{
+	"name": "tinyint",
+	"abstract": "1 byte integer data type",
+	"version": "0.1.0",
+	"maintainer": "Hitoshi Harada <umi.tanuki@gmail.com>",
+	"license": "postgresql",
+	"meta-spec": {
+		"version": "1.0.0",
+		"url": "http://pgxn.org/meta/spec.txt"
+	},
+}
