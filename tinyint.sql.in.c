@@ -1,5 +1,5 @@
 #include "pg_config.h"
-SET search_path TO 'pg_catalog';
+
 BEGIN;
 
 CREATE FUNCTION tinyint_in(cstring) RETURNS tinyint AS
@@ -1135,6 +1135,15 @@ DEFAULT FOR TYPE tinyint[] USING gin AS
 #endif
 	STORAGE tinyint;
 
+CREATE FUNCTION hash_tinyint(tinyint) RETURNS integer AS
+'MODULE_PATHNAME'
+LANGUAGE c IMMUTABLE STRICT;
+
+CREATE OPERATOR CLASS hash_tinyint_ops
+FOR TYPE tinyint USING hash FAMILY integer_ops AS
+	OPERATOR 1 =,
+	FUNCTION 1 hash_tinyint(tinyint);
+
 CREATE FUNCTION tinyint_sum(bigint, tinyint) RETURNS bigint AS
 'MODULE_PATHNAME'
 LANGUAGE c IMMUTABLE;
@@ -1154,4 +1163,3 @@ CREATE AGGREGATE avg(tinyint) (
 );
 
 COMMIT;
-RESET search_path;

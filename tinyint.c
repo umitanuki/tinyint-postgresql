@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <limits.h>
 
+#include "access/hash.h"
 #include "catalog/pg_type.h"
 #include "libpq/pqformat.h"
 #include "utils/array.h"
@@ -132,6 +133,8 @@ PG_FUNCTION_INFO_V1(bt_tinyint_i8cmp);
 PG_FUNCTION_INFO_V1(bt_i2_tinyint_cmp);
 PG_FUNCTION_INFO_V1(bt_i4_tinyint_cmp);
 PG_FUNCTION_INFO_V1(bt_i8_tinyint_cmp);
+
+PG_FUNCTION_INFO_V1(hash_tinyint);
 
 PG_FUNCTION_INFO_V1(tinyint_sum);
 PG_FUNCTION_INFO_V1(tinyint_avg_accum);
@@ -1385,6 +1388,12 @@ bt_i8_tinyint_cmp(PG_FUNCTION_ARGS)
 		PG_RETURN_INT32(0);
 	else
 		PG_RETURN_INT32(-1);
+}
+
+Datum
+hash_tinyint(PG_FUNCTION_ARGS)
+{
+	return hash_uint32((int32) PG_GETARG_TINYINT(0));
 }
 
 Datum

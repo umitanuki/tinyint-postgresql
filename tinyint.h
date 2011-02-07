@@ -135,6 +135,8 @@ extern Datum bt_i2_tinyint_cmp(PG_FUNCTION_ARGS);
 extern Datum bt_i4_tinyint_cmp(PG_FUNCTION_ARGS);
 extern Datum bt_i8_tinyint_cmp(PG_FUNCTION_ARGS);
 
+extern Datum hash_tinyint(PG_FUNCTION_ARGS);
+
 extern Datum tinyint_sum(PG_FUNCTION_ARGS);
 extern Datum tinyint_avg_accum(PG_FUNCTION_ARGS);
 
