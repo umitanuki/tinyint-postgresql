@@ -1,0 +1,9 @@
+tinyint-postgresql
+
+This is an extension that impelements tinyint (1 byte integer) as a data type
+of PostgreSQL. Traditionally, PostgreSQL core has a policy not to have 1 byte
+integer in it. With this module, you can define 1 byte integer column on your
+tables, which will help query performances and portabilities from other RDBMS.
+
+
+Hitoshi Harada
