@@ -1,7 +1,5 @@
 #include "pg_config.h"
 
-BEGIN;
-
 CREATE FUNCTION tinyint_in(cstring) RETURNS tinyint AS
 'MODULE_PATHNAME'
 LANGUAGE c IMMUTABLE STRICT;
@@ -1164,5 +1162,3 @@ CREATE AGGREGATE avg(tinyint) (
 	INITCOND = '{0,0}',
 	FINALFUNC = int8_avg
 );
-
-COMMIT;
