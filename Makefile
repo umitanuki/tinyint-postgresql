@@ -6,7 +6,7 @@ MODULES = tinyint
 OBJS = tinyint.o
 DATA_built = tinyint.sql
 DATA = uninstall_tinyint.sql
-DOC = doc/tinyint.md
+DOCS = doc/tinyint.md
 REGRESS = tinyint
 
 SQL_IN = tinyint.sql.in
