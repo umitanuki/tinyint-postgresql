@@ -1123,7 +1123,10 @@ DEFAULT FOR TYPE tinyint[] USING gin AS
 #endif
 	FUNCTION 1 bt_tinyint_cmp(tinyint, tinyint),
 	FUNCTION 2 ginarrayextract(anyarray, internal),
-#if PG_VERSION_NUM >= 80400
+#if PG_VERSION_NUM >= 90100
+	FUNCTION 3 ginqueryarrayextract(anyarray, internal, smallint, internal, internal, internal, internal),
+	FUNCTION 4 ginarrayconsistent(internal, smallint, anyarray, integer, internal, internal, internal, internal),
+#elif PG_VERSION_NUM >= 80400
 	FUNCTION 3 ginqueryarrayextract(anyarray, internal, smallint, internal, internal),
 	FUNCTION 4 ginarrayconsistent(internal, smallint, anyarray, integer, internal, internal),
 #elif PG_VERSION_NUM >= 80300
