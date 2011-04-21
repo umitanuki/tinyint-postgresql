@@ -1,11 +1,26 @@
 {
 	"name": "tinyint",
 	"abstract": "1 byte integer data type",
+	"description": "This provides 1 byte integer with full set of operators, index access methods and definition of them.",
 	"version": "0.1.0",
 	"maintainer": "Hitoshi Harada <umi.tanuki@gmail.com>",
 	"license": "postgresql",
+	"resources": {
+		"bugtracker": {
+			"web": "http://github.com/umitanuki/tinyint-postgresql/issues/"
+		},
+		"repository": {
+			"url": "git://github.com/umitanuki/tinyint-postgresql.git",
+			"web": "http://github.com/umitanuki/tinyint-postgresql",
+			"type": "git"
+		}
+	},
 	"meta-spec": {
 		"version": "1.0.0",
 		"url": "http://pgxn.org/meta/spec.txt"
+	},
+	"tags": {
+		"datatype",
+		"integer"
 	}
 }
