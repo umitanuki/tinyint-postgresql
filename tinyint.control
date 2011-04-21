@@ -1,5 +1,5 @@
 # tinyint extension
 comment = '1 byte integer data type'
-default_version = '1.0'
+default_version = '0.1.1'
 module_pathname = '$libdir/tinyint'
 relocatable = true

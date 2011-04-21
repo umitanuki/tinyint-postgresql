@@ -1,15 +1,16 @@
 EXTENSION = tinyint
-EXTVERSION = 1.0
+EXTVERSION = 0.1.1
 EXTSQL = $(EXTENSION)--$(EXTVERSION).sql
 
 MODULES = tinyint
 OBJS = tinyint.o
 DATA_built = tinyint.sql
 DATA = uninstall_tinyint.sql
+DOC = doc/tinyint.md
 REGRESS = tinyint
 
 SQL_IN = tinyint.sql.in
-EXTRA_CLEAN += $(SQL_IN)
+EXTRA_CLEAN += $(SQL_IN) $(EXTSQL)
 
 USE_EXTENSION = $(shell pg_config --version | grep -qE " 8\.|9\.0" && echo no || echo yes)
 
