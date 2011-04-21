@@ -26,8 +26,9 @@
 		"version": "1.0.0",
 		"url": "http://pgxn.org/meta/spec.txt"
 	},
-	"tags": {
+	"tags": [
 		"datatype",
-		"integer"
-	}
+		"integer",
+		"tinyint"
+	]
 }
