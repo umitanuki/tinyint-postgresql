@@ -8,6 +8,7 @@
 	"provides": {
 		"tinyint": {
 			"abstract": "1 byte integer",
+			"version": "0.1.1",
 			"file": "tinyint.sql",
 			"docfile": "doc/tinyint.md"
 		}
