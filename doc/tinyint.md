@@ -31,6 +31,7 @@ This library is stored in an open [GitHub
 repository](http://github.com/umitanuki/tinyint-postgresql).
 Feel free to fork and contribute! Please file bug reports
 via [GitHub Issues](http://github.com/umitanuki/tinyint-postgresql/issues/).
+
 Author
 ------
 
