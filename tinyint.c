@@ -129,7 +129,7 @@ PG_FUNCTION_INFO_V1(tinyint_not);
 PG_FUNCTION_INFO_V1(bt_tinyint_cmp);
 PG_FUNCTION_INFO_V1(bt_tinyint_i2_cmp);
 PG_FUNCTION_INFO_V1(bt_tinyint_i4_cmp);
-PG_FUNCTION_INFO_V1(bt_tinyint_i8cmp);
+PG_FUNCTION_INFO_V1(bt_tinyint_i8_cmp);
 PG_FUNCTION_INFO_V1(bt_i2_tinyint_cmp);
 PG_FUNCTION_INFO_V1(bt_i4_tinyint_cmp);
 PG_FUNCTION_INFO_V1(bt_i8_tinyint_cmp);
