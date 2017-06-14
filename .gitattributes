@@ -1,0 +1,7 @@
+* text=auto
+*.c text
+*.h text
+*.sql text
+*.control text
+*.json text
+Makefile text
