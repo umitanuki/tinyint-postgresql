@@ -54,11 +54,11 @@ select
     pg_size_pretty(pg_relation_size('a_z_idx')::bigint)     as "z idx"
 from a;
 
--- select count(*) from a where x = 3;             -- uses x idx  > btree(tinyint)           > 0.0417280197
--- select count(*) from a where x::smallint = 3;   -- uses x idx1 > btree(tinyint::smallint) > 0.1382019521
--- select count(*) from a where x::smallint = 3;   -- uses x idx2 > gin(tinyint::smallint)   > 0.1412460804
--- select count(*) from a where y = 3333;          -- uses y idx  > btree(smallint)          > 0.0051538944
--- select count(*) from a where z = 'on';          -- uses z idx  > btree(enum)              > 0.4917960167
+-- select count(*) from a where x = 3;             -- uses x idx  > btree(tinyint)           > 0.0417280197 ms
+-- select count(*) from a where x::smallint = 3;   -- uses x idx1 > btree(tinyint::smallint) > 0.1382019521 ms
+-- select count(*) from a where x::smallint = 3;   -- uses x idx2 > gin(tinyint::smallint)   > 0.1412460804 ms
+-- select count(*) from a where y = 3333;          -- uses y idx  > btree(smallint)          > 0.0051538944 ms
+-- select count(*) from a where z = 'on';          -- uses z idx  > btree(enum)              > 0.4917960167 ms
 ```
 
 
