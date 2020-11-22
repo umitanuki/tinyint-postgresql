@@ -1,31 +1,39 @@
-
 #ifndef TINYINT_H
 #define TINYINT_H
 
-#include <ctype.h>
-
-#include "fmgr.h"
-
-
+/**
+ * This is where it begins..
+ */
 typedef char tinyint;
 
-#define DatumGetTinyInt(X) ((tinyint) GET_1_BYTE(X))
-#define TinyIntGetDatum(X) ((Datum) SET_1_BYTE(X))
+/**
+ * Seems these was removed in recent versions.
+ * Source: http://web.mit.edu/databases/pgsql/arch/i386_nbsd1/include/c.h
+ */
+#ifndef GET_1_BYTE
+#define GET_1_BYTE(datum) (((Datum) (datum)) & 0x000000ff)
+#endif
+#ifndef SET_1_BYTE
+#define SET_1_BYTE(value) (((Datum) (value)) & 0x000000ff)
+#endif
 
-#define PG_GETARG_TINYINT(n)	DatumGetTinyInt(PG_GETARG_DATUM(n))
-#define PG_RETURN_TINYINT(x)	return TinyIntGetDatum(x)
+#define DatumGetTinyInt(x) ((tinyint) GET_1_BYTE(x))
+#define TinyIntGetDatum(x) ((Datum) SET_1_BYTE(x))
+
+#define PG_GETARG_TINYINT(n) DatumGetTinyInt(PG_GETARG_DATUM(n))
+#define PG_RETURN_TINYINT(x) return TinyIntGetDatum(x)
 
 extern Datum tinyint_in(PG_FUNCTION_ARGS);
 extern Datum tinyint_out(PG_FUNCTION_ARGS);
 extern Datum tinyint_recv(PG_FUNCTION_ARGS);
 extern Datum tinyint_send(PG_FUNCTION_ARGS);
 
-extern Datum tinyint_to_i2(PG_FUNCTION_ARGS);
-extern Datum i2_to_tinyint(PG_FUNCTION_ARGS);
-extern Datum tinyint_to_i4(PG_FUNCTION_ARGS);
-extern Datum i4_to_tinyint(PG_FUNCTION_ARGS);
-extern Datum tinyint_to_i8(PG_FUNCTION_ARGS);
-extern Datum i8_to_tinyint(PG_FUNCTION_ARGS);
+extern Datum tinyint_to_smallint(PG_FUNCTION_ARGS);
+extern Datum smallint_to_tinyint(PG_FUNCTION_ARGS);
+extern Datum tinyint_to_int(PG_FUNCTION_ARGS);
+extern Datum int_to_tinyint(PG_FUNCTION_ARGS);
+extern Datum tinyint_to_bigint(PG_FUNCTION_ARGS);
+extern Datum bigint_to_tinyint(PG_FUNCTION_ARGS);
 extern Datum tinyint_to_bool(PG_FUNCTION_ARGS);
 extern Datum bool_to_tinyint(PG_FUNCTION_ARGS);
 
