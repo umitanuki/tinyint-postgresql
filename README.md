@@ -3,11 +3,11 @@ Download and unzip content, then use `make` tool (seems also server restart need
 
 ```sh
 cd /tmp \
-    apt install unzip -y \
-    apt install postgresql-server-dev-13 -y \ # or any version
-    wget https://github.com/k-gun/tinyint-postgresql/archive/master.zip \
-    unzip master.zip && cd tinyint-postgresql-master \
-    make && make install && service postgresql restart
+apt install unzip -y \
+apt install postgresql-server-dev-13 -y \ # or any version
+wget https://github.com/k-gun/tinyint-postgresql/archive/master.zip \
+unzip master.zip && cd tinyint-postgresql-master \
+make && make install && service postgresql restart
 ```
 
 ### NOTICE
