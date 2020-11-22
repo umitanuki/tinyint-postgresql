@@ -13,9 +13,9 @@ make && make install && service postgresql restart
 ### NOTICE
 Fixed some bugs those addressed on issue pages and added `int1` alias as domain. But after some tests the results were very surprising; because `tinyint` field index (BTree) size became very huge (about %150-200 more) comparing to `smallint` and `enum` fields. So, for this issue, field types can be converted to `smallint` and also GIN method can be used instead. But, seems whatever we do, both these methods ain't able to get speed of real integers.
 
-| rows       | table  | x    | y     | z     | x idx  | x idx1 | x idx2 | y idx | z idx |
-|---------------------------------------------------------------------------------------|
-| 10,512,101 | 364 MB | 10 MB | 20 MB | 40 MB | 226 MB | 70 MB | 18 MB  | 85 MB | 70 MB |
+| rows       | table  | x     | y     | z     | x idx  | x idx1 | x idx2 | y idx | z idx |
+|------------|--------|-------|-------|-------|--------|--------|--------|-------|-------|
+| 10,512,101 | 364 MB | 10 MB | 20 MB | 40 MB | 226 MB | 70 MB  | 18 MB  | 85 MB | 70 MB |
 
 
 Test Stuff
