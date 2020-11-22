@@ -7,7 +7,7 @@
 typedef char tinyint;
 
 /**
- * Seems these was removed in recent versions.
+ * Seems these macros were removed in recent versions.
  * Source: http://web.mit.edu/databases/pgsql/arch/i386_nbsd1/include/c.h
  */
 #ifndef GET_1_BYTE
