@@ -76,7 +76,7 @@ Examples
 
 Install the extension:
 
-    `CREATE EXTENSION tinyint;`
+    CREATE EXTENSION tinyint;
 
 Create a table using `tinyint`:
 
@@ -155,6 +155,7 @@ Waiting on Your pull requests ;-)
 
 Useful links
 ------------
+ - Other 1 byte integer data type for PostgreSQL in repository of unsigned integers for PostgreSQL https://github.com/petere/pguint
  - https://wiki.postgresql.org
  - https://pgxn.org
  
