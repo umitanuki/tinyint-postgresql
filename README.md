@@ -61,7 +61,7 @@ Please carefully read output of `sudo make install` for understanding location o
 cd /tmp && \
 apt install unzip -y && \
 apt install postgresql-server-dev-13 -y && \ # or any version
-wget https://github.com/okerem/tinyint-postgresql/archive/master.zip && \
+wget https://github.com/krmgns/tinyint-postgresql/archive/master.zip && \
 unzip master.zip && cd tinyint-postgresql-master && \
 make && make install && service postgresql restart
 ```
@@ -88,7 +88,7 @@ Create a table using `tinyint`:
 Common tests
 ------------
 
-Sample outputs of `psql` are provided in the [`../expected/`](https://github.com/okerem/tinyint-postgresql/tree/master/expected) directory. 
+Sample outputs of `psql` are provided in the [`../expected/`](https://github.com/krmgns/tinyint-postgresql/tree/master/expected) directory. 
 
 
 Special tests
@@ -163,4 +163,4 @@ Authors
 -------
 
 * Original idea by [*Hitoshi Harada*](https://github.com/umitanuki/tinyint-postgresql).
-* Advanced tests and source code actualisation by [*Kerem Güneş*](https://github.com/okerem/tinyint-postgresql). 
+* Advanced tests and source code actualisation by [*Kerem Güneş*](https://github.com/krmgns/tinyint-postgresql). 
